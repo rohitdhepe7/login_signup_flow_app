@@ -1,15 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:login_signup_flow_app/screens/forgot_password_screen.dart';
-import 'package:login_signup_flow_app/screens/register_screen.dart';
+import 'package:login_signup_flow_app/screens/login_screen.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class RegisterScreen extends StatelessWidget {
+  const RegisterScreen({super.key});
 
-  @override
-  State<LoginScreen> createState() => _LoginScreenState();
-}
-
-class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +25,7 @@ class _LoginScreenState extends State<LoginScreen> {
             child: SizedBox(
               width: MediaQuery.of(context).size.width * 0.8,
               child: Text(
-                "Welcome back! Glad to see you, Again!",
+                "Hello! Register to get started",
                 style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700),
               ),
             ),
@@ -51,7 +45,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: TextFormField(
                     decoration: InputDecoration(
                         border: InputBorder.none,
-                        hintText: 'Enter your email',
+                        hintText: 'Username',
                         hintStyle: TextStyle(color: Color(0xFF8391A1))),
                   ),
                 )),
@@ -70,39 +64,59 @@ class _LoginScreenState extends State<LoginScreen> {
                   padding: const EdgeInsets.only(left: 10, right: 10),
                   child: TextFormField(
                     decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: 'Enter your password',
-                        hintStyle: TextStyle(color: Color(0xFF8391A1)),
-                        suffixIcon: Icon(
-                          Icons.remove_red_eye,
-                          color: Color(0XFF8391A1),
-                        )),
+                      border: InputBorder.none,
+                      hintText: 'Email',
+                      hintStyle: TextStyle(color: Color(0xFF8391A1)),
+                    ),
                   ),
                 )),
           ),
+          SizedBox(
+            height: 15,
+          ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-            child: Align(
-              alignment: Alignment.centerRight,
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const ForgotPasswordScreen(),
-                      ));
-                },
-                child: Text(
-                  "Forgot Password?",
-                  style: TextStyle(color: Color(0xFF6A707C)),
-                ),
-              ),
-            ),
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Container(
+                decoration: BoxDecoration(
+                    color: Color(0xFFF7F8F9),
+                    border: Border.all(color: Color(0xFFE8ECF4)),
+                    borderRadius: BorderRadius.circular(8)),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 10, right: 10),
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      hintText: 'Password',
+                      hintStyle: TextStyle(color: Color(0xFF8391A1)),
+                    ),
+                  ),
+                )),
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Container(
+                decoration: BoxDecoration(
+                    color: Color(0xFFF7F8F9),
+                    border: Border.all(color: Color(0xFFE8ECF4)),
+                    borderRadius: BorderRadius.circular(8)),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 10, right: 10),
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      hintText: 'Confirm password',
+                      hintStyle: TextStyle(color: Color(0xFF8391A1)),
+                    ),
+                  ),
+                )),
           ),
           SizedBox(
             height: 25,
           ),
-          //login button
+          //register button
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
             child: Row(
@@ -113,17 +127,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const LoginScreen(),
-                          ));
-                    },
+                    onPressed: () {},
                     child: Padding(
                       padding: const EdgeInsets.all(15.0),
                       child: const Text(
-                        "Login",
+                        "Register",
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 16,
@@ -150,7 +158,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: Text(
-                    "or login with",
+                    "or register with",
                     style: TextStyle(color: Color(0xFF6A707C)),
                   ),
                 ),
@@ -224,7 +232,7 @@ class _LoginScreenState extends State<LoginScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Don't have an account?",
+                  "Already have an account?",
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                 ),
                 SizedBox(
@@ -235,11 +243,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const RegisterScreen(),
+                          builder: (context) => const LoginScreen(),
                         ));
                   },
                   child: Text(
-                    "Register",
+                    "Login Now",
                     style: TextStyle(
                         color: Color(0xFF35C2C1),
                         fontSize: 16,

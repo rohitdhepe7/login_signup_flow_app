@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login_signup_flow_app/screens/login_screen.dart';
+import 'package:login_signup_flow_app/screens/register_screen.dart';
 
 class WelComeScreen extends StatelessWidget {
   const WelComeScreen({super.key});
@@ -67,7 +68,13 @@ class WelComeScreen extends StatelessWidget {
                       side: BorderSide(color: Color(0xFF1E232C)),
                       borderRadius: BorderRadius.circular(8),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const RegisterScreen(),
+                          ));
+                    },
                     child: Padding(
                       padding: const EdgeInsets.all(15.0),
                       child: const Text(
